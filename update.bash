@@ -15,8 +15,10 @@ ALT_DIR=""
 for conf in "${files[@]}"
 do 
 	#cp to Configs/ 
+	#make sure to exclude directories 
 	 
-	cp $conf /tmp/
+	cp $conf $DEST_DIR/rpc
+	#TODO: make sure the files are overwritten 
 	echo "${conf} successfully copied to $DEST_DIR"
 
 done

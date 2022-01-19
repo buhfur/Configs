@@ -3,4 +3,4 @@
 #one liner that says where bash and script are at all times
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-echo $SCRIPT_DIR
+ls $SCRIPT_DIR/rpc
