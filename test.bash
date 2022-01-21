@@ -1,6 +1,8 @@
 #!/bin/bash
 
-#one liner that says where bash and script are at all times
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+if [[ -f ~/.tmux.conf ]] ; then
+	echo "file does exist"
+	
 
-ls $SCRIPT_DIR/rpc
+fi
+
