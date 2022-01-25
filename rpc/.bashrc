@@ -317,4 +317,4 @@ alias ducks='du -cks * | sort -rn | head'
 alias bashrc='vim ~/.bashrc'
 #alias for entering entries into my systems Journal
 #this will not function well unless you have NERDTree installed for vim
-alias entry="cd $KAREN/Journal/Entries"
+alias entry="cd $K/Journal/Entries"

@@ -31,7 +31,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'morhetz/gruvbox'
 Plugin 'grvcoelho/vim-javascript-snippets'
-
+Plugin 'tpope/vim-obsession'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -53,7 +53,6 @@ call plug#begin()
 	Plug 'tyru/open-browser.vim' "opens urls in browser in vim 
 	Plug 'junegunn/fzf', {'do' : { -> fzf#install() }}
 	Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-	
 call plug#end()
 "ones work
 filetype plugin indent on    " required
@@ -88,15 +87,11 @@ nmap tt :NERDTreeToggle<CR>
 
 set bg=dark
 colorscheme gruvbox   
-nnoremap ;w :w<cr>    
-nnoremap <space>w :wq<cr>
-nnoremap ;q :q!<cr>
 "runs scripts with specific mapping [ going to add on to more later like
+
 "javascript
-nnoremap cp :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 
-	exec "w"
 	exec "!clear"
 	if &filetype == 'c'
 		exec "!gcc % -o %<"
@@ -123,8 +118,6 @@ func! CompileRunGcc()
 	endif
 endfunc
 
-"Easy access to vimrc
-nnoremap vc :vsplit ~/.vimrc<cr>
 
 " updates the NERDTree view and sets it to focus
 nmap qq :NERDTreeFocus<cr>R<c-w><c-p>
@@ -138,7 +131,6 @@ map <C-H> gT
 "nnoremap <C-p> o<Esc>
 
 
-nnoremap <C-j> :GFiles<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 
@@ -165,7 +157,6 @@ map <C-H> gT
 "nnoremap <C-p> o<Esc>
 
 
-nnoremap <C-j> :GFiles<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 
@@ -250,7 +241,6 @@ filetype plugin indent on    " required
 "some other commands i might want to add
 
 syntax on
-inoremap <space><space> <Esc>
 "exit insert mode and save changes
 inoremap hh <Esc> :w<CR>
 
@@ -266,7 +256,7 @@ nmap tt :NERDTreeToggle<CR>
 set bg=dark
 colorscheme gruvbox   
 nnoremap ;w :w<cr>    
-nnoremap <space>w :wq<cr>
+nnoremap <leader>w :wq<cr>
 nnoremap ;q :q!<cr>
 "runs scripts with specific mapping [ going to add on to more later like
 "javascript
@@ -298,13 +288,21 @@ func! CompileRunGcc()
 	endif
 endfunc
 
-"Easy access to vimrc
+" CUSTOM NORMAL MAPPINGS 
 nnoremap vc :vsplit ~/.vimrc<cr>
+nnoremap ;w :w<cr>    
+nnoremap <leader>w :wq<cr>
+nnoremap ;q :q!<cr>
+nnoremap cp :call CompileRunGcc()<CR>
+nnoremap vc :vsplit ~/.vimrc<cr>
+noremap <C-c> "*y
+noremap <C-V> "*p
+nnoremap <C-j> :GFiles<CR>
+noremap <C-c> "*y
+noremap <C-V> "*p
 "function boilerplate code for multple languages
-nnoremap <space><space> i#include<stdio.h><Esc>o<CR>int main(void){<Esc>o<Esc>oreturn 0;<Esc>o}<Esc>kki
 " updates the NERDTree view and sets it to focus
-nmap qq :NERDTreeFocus<cr>R<c-w><c-p>
-
+" nmap qq :NERDTreeFocus<cr>R<c-w><c-p> 
 " switch between tabs with Ctrl + h and Ctrl + l
 map <C-L> gt
 map <C-H> gT
@@ -314,15 +312,12 @@ map <C-H> gT
 "nnoremap <C-p> o<Esc>
 
 
-nnoremap <C-j> :GFiles<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 
 
 "changes [ Ctrl + c ] to work as it does on windows 
 "copying text to the system clipboard
-noremap <C-c> "*y
-noremap <C-V> "*p
 vnoremap <C-c> "+y
 vnoremap <C-V> "+p
 inoremap {<CR> {<CR>}<C-o>O
@@ -341,15 +336,13 @@ map <C-H> gT
 "nnoremap <C-p> o<Esc>
 
 
-nnoremap <C-j> :GFiles<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap qq :wq<cr>
 
 
 "changes [ Ctrl + c ] to work as it does on windows 
 "copying text to the system clipboard
-noremap <C-c> "*y
-noremap <C-V> "*p
 vnoremap <C-c> "+y
 vnoremap <C-V> "+p
 inoremap {<CR> {<CR>}<C-o>O
