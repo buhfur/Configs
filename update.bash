@@ -22,3 +22,6 @@ do
 	echo "${conf} successfully copied to $DEST_DIR/rpc "
 
 done
+
+
+git add .;git add .hidden*;git commit -a -m"blahblah";git push
