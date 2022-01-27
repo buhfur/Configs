@@ -1,0 +1,3 @@
+#!/bin/bash
+NAME="gulDan"
+sed -i '1s/^/$NAME/' HelloWorld.java
